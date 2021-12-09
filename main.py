@@ -2,8 +2,6 @@ from argparse import ArgumentParser
 from utils.my_datamodule import MyDataModule
 from utils import transform
 from utils.dataset_new import load_dataset
-from models.nn import NN
-from models.dnn import DNN
 from models.bilstm import BiLSTM
 from sentence_transformers import SentenceTransformer, util
 import pytorch_lightning as pl
@@ -12,7 +10,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
 from pytorch_lightning.utilities import seed
 import random
 import pandas as pd
-# from ae.ae_lstm import AutoEncoder
 from ae.ae import AutoEncoder
 import torch
 from torch.nn.functional import normalize
@@ -26,7 +23,7 @@ import time
 
 def main(hparams):
     seed.seed_everything(1)
-    wandb.login(host='http://localhost:8080')
+    wandb.login(host='http://localhost:8081')
     project_name = hparams.dataset if hparams.project_name == None else hparams.project_name
     run = wandb.init(
         project = project_name,
@@ -111,11 +108,9 @@ if __name__ == '__main__':
     parser.add_argument('--dropout', type=float, default=0.5)
     parser.add_argument('--aug_number', type=float, default=0.0)
     parser.add_argument('--augmenting', type=bool, default=False)
-    # parser.add_argument('--patience', type=int, default=5)
     parser.add_argument('--hidden_dim', type=int, default=500)
-    # parser.add_argument('--operator', type=str, default='+')
     parser.add_argument('--dataset', type=str, default='en')
-    parser.add_argument('--sample', type=float, default=None)
+    parser.add_argument('--sample', type=float, default=1.0)
     parser.add_argument('--ae_model', type=str, default=None)
     parser.add_argument('--da_model', type=str, default=None)
     parser.add_argument('--ae_hidden', type=int, default=None)
