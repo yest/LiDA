@@ -35,7 +35,7 @@ for dataset in langs:
         lr = 9e-6
         for aug_type in aug_types:
             os.system(
-                f'python main_new.py --augmenting=True --sample={sample} --dataset={dataset} --lr={lr} --ae_model={ae_model} --ae_hidden={ae_hidden} --dropout={dropout} --project_name={project_name} --epochs={epochs} --da_model={da_model} --aug_number={aug_number} --aug_type={aug_type}')
+                f'python main.py --augmenting=True --sample={sample} --dataset={dataset} --lr={lr} --ae_model={ae_model} --ae_hidden={ae_hidden} --dropout={dropout} --project_name={project_name} --epochs={epochs} --da_model={da_model} --aug_number={aug_number} --aug_type={aug_type}')
 
         # backtrans
         # lr = 1e-5
