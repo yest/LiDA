@@ -2,9 +2,9 @@
 
 This repository contains the source code and the datasets for LiDA.
 
-<!-- # Usage
+# Usage
 
-## Training Baseline
+## Training Baseline models
 
 ### LSTM
 
@@ -15,17 +15,20 @@ python main.py
 ### SBERT
 
 ```
-python sbert/main.py
+cd sbert
+python main.py
 ```
 
-## Training with LiDA
+## Run the experiment
 
 ### LSTM
-
+Open the experiment.py file and adjust the parameters before running it.
 ```
-python main.py
-    --augmenting True
-    --sample $SAMPLE
-    --dataset $DATASET
-    --
-``` -->
+python experiment.py
+```
+
+### SBERT
+Go to sbert folder, open the experiment.py file and adjust the parameters before running it.
+```
+python experiment.py
+```

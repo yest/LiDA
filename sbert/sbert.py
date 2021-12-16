@@ -35,6 +35,8 @@ from transformers import (
 )
 
 from ae import AutoEncoder
+# from ae import autoencoder
+# /home/NCKU/2021/Research/LiDA/ae/ae.py
 
 
 class BERTDataset:
@@ -151,11 +153,11 @@ class SBERT(pl.LightningModule):
             if train:
                 ae = AutoEncoder.load_from_checkpoint(
                     # '../ae/saved/ae-quora-den-sunny-dream-35.ckpt', embedding_dim=768, hidden_dim=300, lr=5e-5
-                    f'../ae/saved/ae-quora-den-{self.ae_model}.ckpt', embedding_dim=768, hidden_dim=self.ae_hidden, lr=1e-4
+                    f'../ae/best/ae-quora-den-{self.ae_model}.ckpt', embedding_dim=768, hidden_dim=self.ae_hidden, lr=1e-4
                 ).cuda()
                 da = AutoEncoder.load_from_checkpoint(
                     # '../ae/saved/ae-quora-den-sunny-dream-35.ckpt', embedding_dim=768, hidden_dim=300, lr=5e-5
-                    f'../ae/saved/ae-quora-den-{self.da_model}.ckpt', embedding_dim=768, hidden_dim=self.ae_hidden, lr=1e-4
+                    f'../ae/best/ae-quora-den-{self.da_model}.ckpt', embedding_dim=768, hidden_dim=self.ae_hidden, lr=1e-4
                 ).cuda()
 
                 train_aug_lin = pooler + self.aug_number

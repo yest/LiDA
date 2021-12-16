@@ -131,3 +131,5 @@ dmypy.json
 # ignore
 saved/
 wandb/
+sbert/saved/
+sbert/wandb/

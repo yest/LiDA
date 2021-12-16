@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from utils.my_datamodule import MyDataModule
 from utils import transform
-from utils.dataset_new import load_dataset
+from utils.dataset import load_dataset
 from models.bilstm import BiLSTM
 from sentence_transformers import SentenceTransformer, util
 import pytorch_lightning as pl
